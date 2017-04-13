@@ -2,9 +2,32 @@
 
 <div class="section" id="top"><!-- Parent section -->
 
-    <div class="container hero is-medium has-text-centered {{ if .Site.Params.fadein }} fade-in one {{ end }}"><!-- Begin Title -->
-    <h1 class="bold-title is-1">404</h1>
-    </div><!-- End Title -->
+    <div class="hero fade-in one"><!-- Begin hero 404 -->
+        <div class="hero-body has text centered">
+            <h1 class="title bold-title is-1">404</h1>
+        </div>
+    </div><!-- End hero 404 -->
+        
+    <div class="container fade-in two"><!-- Begin Nav bar -->
+            <hr>
+            <nav class="nav-center">
+                <a class="nav-item" href="/">Main</a> | 
+                <a class="nav-item" href="/#about">About</a> | 
+                {{ if .Site.Params.showprojects }}
+                <a class="nav-item" href="/#projects">Projects</a> | 
+                {{ end }}
+                {{ if .Site.Params.showallposts }}
+                <a href="/#blog">Blog</a> |
+                {{ else }}
+                <a href="/blog">Blog</a> |
+                {{ end }}
+                <a class="nav-item" href="/#contact">Contact</a> 
+                {{ if .Site.RSSLink }}
+                <a class="nav-item" href="{{ .Site.RSSLink }}"><i class="fa fa-rss"></i></a>
+                {{ end }}
+            </nav>
+            <hr>
+    </div><!-- End Nav bar -->
 
 <!-- Everything below fades in two! -->
 <div class="section {{ if .Site.Params.fadein }} fade-in two {{ end }}">

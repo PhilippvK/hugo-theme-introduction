@@ -41,7 +41,7 @@
         {{ if .Site.Params.showblog }}
         <a class="nav-item" href="#blog">Blog</a>
         {{ end }}
-        <a class="nav-item" href="#contact">Contact</a>
+        <a class="nav-item" href="#contact">Contact</a> 
     </nav>
     <hr>
     </div><!-- Done with nav bar -->
@@ -146,12 +146,8 @@
 <script>
 $('a[href^="#"]').click(function(e) {
     e.preventDefault();
-    var target = this.hash;
-    $('html, body').animate({
-    scrollTop: $(target).offset().top
-    }, 500);
-    return false;
-})
-</script>
-
-</body>
+    // Scroll the window, stop any previous animation, stop on user manual scroll
+    // Check https://github.com/flesler/jquery.scrollTo for more customizability
+    $(window).stop(true).scrollTo(this.hash, {duration:500, interrupt:false});
+  });
+  </script>
